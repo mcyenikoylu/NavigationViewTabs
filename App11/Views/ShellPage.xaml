@@ -10,10 +10,7 @@
     Loaded="OnLoaded">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+      
         <Grid x:Name="AppTitleBar" Height="48"
               
 Canvas.ZIndex="0"

@@ -4,9 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+         xmlns:behaviors="using:CommunityToolkit.WinUI.Behaviors"
+       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
-        
+
+        <NavigationView x:Name="nvSample" PaneDisplayMode="Top"
+SelectionFollowsFocus="Enabled" IsBackButtonVisible="Collapsed" ItemInvoked="nvSample_ItemInvoked" SelectionChanged="nvSample_SelectionChanged" >
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Play" Content="Item1" x:Name="SamplePage1Item" Tag="BlankPage1" />
+                <NavigationViewItem Icon="Save" Content="Item2" x:Name="SamplePage2Item" Tag="SamplePage6Page" />
+                <NavigationViewItem Icon="Refresh" Content="Item3" x:Name="SamplePage3Item" Tag="SamplePage7Page" />
+                <NavigationViewItem Icon="Download" Content="Item4" x:Name="SamplePage4Item" Tag="SamplePage8Page" />
+            </NavigationView.MenuItems>
+            <Frame x:Name="contentFrame"/>
+        </NavigationView>
+
     </Grid>
 </Page>
