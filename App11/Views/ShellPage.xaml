@@ -10,24 +10,52 @@
     Loaded="OnLoaded">
 
     <Grid>
-        <Grid x:Name="AppTitleBar"
-              Canvas.ZIndex="1"
-              Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}"
-              IsHitTestVisible="True"
-              VerticalAlignment="Top">
-            <Image Source="/Assets/WindowIcon.ico"
-                   HorizontalAlignment="Left"
-                   Width="16"
-                   Height="16" />
-            <TextBlock x:Name="AppTitleBarText"
-                       VerticalAlignment="Center"
-                       TextWrapping="NoWrap"
-                       Style="{StaticResource CaptionTextBlockStyle}"
-                       Margin="28,0,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="AppTitleBar" Height="48"
+              
+Canvas.ZIndex="0"
+
+IsHitTestVisible="True"
+VerticalAlignment="Top"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
+                <ColumnDefinition x:Name="IconColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="TitleColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="LeftDragColumn" Width="*"/>
+                <ColumnDefinition x:Name="SearchColumn" Width="4*" MinWidth="220"/>
+                <ColumnDefinition x:Name="RightDragColumn" Width="*" MinWidth="48"/>
+                <ColumnDefinition x:Name="AccountColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="TitleBarIcon" 
+       Source="ms-appx:///Assets/StoreLogo.png"
+       Grid.Column="1"
+       Width="16" Height="16"
+       Margin="8,0,4,0"/>
+            <TextBlock x:Name="TitleBarTextBlock"
+           Text="App title" 
+           Style="{StaticResource CaptionTextBlockStyle}"
+           Grid.Column="2"
+           VerticalAlignment="Center">
+            </TextBlock>
+            <AutoSuggestBox x:Name="TitleBarSearchBox" 
+                Grid.Column="4" 
+                QueryIcon="Find"
+                PlaceholderText="Search"
+                VerticalAlignment="Center"
+                MaxWidth="600"/>
+            <PersonPicture x:Name="PersonPic" 
+               Grid.Column="6" 
+               Height="32" Margin="0,0,16,0"/>
         </Grid>
+
         <NavigationView
             x:Name="NavigationViewControl"
-            Canvas.ZIndex="0"
+Canvas.ZIndex="1"           
             IsBackButtonVisible="Visible"
             IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
             SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"

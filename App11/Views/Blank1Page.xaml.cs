@@ -1,4 +1,5 @@
 ﻿using App11.ViewModels;
+using DevExpress.WinUI.Grid;
 
 using Microsoft.UI.Xaml.Controls;
 
@@ -6,6 +7,8 @@ namespace App11.Views;
 
 public sealed partial class Blank1Page : Page
 {
+
+
     public Blank1ViewModel ViewModel
     {
         get;
@@ -16,4 +19,6 @@ public sealed partial class Blank1Page : Page
         ViewModel = App.GetService<Blank1ViewModel>();
         InitializeComponent();
     }
+
+
 }

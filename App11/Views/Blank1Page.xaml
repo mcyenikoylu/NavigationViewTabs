@@ -4,10 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    xmlns:local="using:App11"    xmlns:dxi="using:DevExpress.WinUI.Core.Internal"    xmlns:sys="using:System"    xmlns:dx="using:DevExpress.WinUI.Core"    xmlns:dxg="using:DevExpress.WinUI.Grid"
+    
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
-        <NavigationView x:Name="nvSample" PaneDisplayMode="Top"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        
+        
+        <NavigationView x:Name="nvSample" PaneDisplayMode="Top" Grid.Row="0"
     SelectionFollowsFocus="Enabled" IsBackButtonVisible="Collapsed">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Play" Content="Item1" x:Name="SamplePage1Item" />
@@ -17,5 +27,8 @@
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"/>
         </NavigationView>
+
+              <!--#endregion Resources-->        <dxg:GridControl        x:Name="grid"        AutoExpandAllGroups="True"        AutoGenerateColumns="False"        AutoWidth="False"      Grid.Row="1"        NavigationStyle="Cell"        ShowFixedTotalSummary="True"        ShowGroupPanel="False"        ShowGroupedColumns="False"        ShowSearchPanelMode="Always"       >            <dxg:GridControl.Columns>                              <dxg:GridTextColumn                FieldName="Subject"                Width="300"                AllowFiltering="False"                AllowGrouping="False"                TextTrimming="CharacterEllipsis" />                           <dxg:GridDateColumn                FieldName="CreatedDate"                Width="110"                AllowFiltering="False"                AllowGrouping="False"                GroupIndex="0"                GroupInterval="DateRange"                Mask="M/d/yyyy"                SortOrder="Descending" />                <dxg:GridDateColumn                FieldName="StartDate"                Width="110"                AllowFiltering="False"                AllowGrouping="False"                Mask="M/d/yyyy"                NullText="None" />                <dxg:GridDateColumn                FieldName="DueDate"                Width="110"                AllowFiltering="False"                AllowGrouping="False"                Mask="M/d/yyyy"                NullText="None" />                <dxg:GridDateColumn                FieldName="FinishDate"                Width="120"                AllowFiltering="False"                AllowGrouping="False"                Mask="M/d/yyyy"                NullText="None" />                          </dxg:GridControl.Columns>                   </dxg:GridControl>
+
     </Grid>
 </Page>
