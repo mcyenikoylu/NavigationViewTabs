@@ -17,6 +17,7 @@ public class PageService : IPageService
         Configure<MainViewModel, MainPage>();
         Configure<Blank1ViewModel, Blank1Page>();
         Configure<SettingsViewModel, SettingsPage>();
+        Configure<DataGridViewModel, DataGridPage>();
     }
 
     public Type GetPageType(string key)

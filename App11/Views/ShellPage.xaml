@@ -10,15 +10,15 @@
     Loaded="OnLoaded">
 
     <Grid>
-      
-        <Grid x:Name="AppTitleBar" Height="48"
-              
-Canvas.ZIndex="0"
 
-IsHitTestVisible="True"
-VerticalAlignment="Top"
-              >
+        <Grid x:Name="AppTitleBar" 
+              Height="48"
+            Canvas.ZIndex="0"
+            IsHitTestVisible="True"
+            VerticalAlignment="Top" >
+
             <Grid.ColumnDefinitions>
+
                 <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
                 <ColumnDefinition x:Name="IconColumn" Width="Auto"/>
                 <ColumnDefinition x:Name="TitleColumn" Width="Auto"/>
@@ -26,40 +26,47 @@ VerticalAlignment="Top"
                 <ColumnDefinition x:Name="SearchColumn" Width="4*" MinWidth="220"/>
                 <ColumnDefinition x:Name="RightDragColumn" Width="*" MinWidth="48"/>
                 <ColumnDefinition x:Name="AccountColumn" Width="Auto"/>
+         
                 <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+
             </Grid.ColumnDefinitions>
+
             <Image x:Name="TitleBarIcon" 
-       Source="ms-appx:///Assets/StoreLogo.png"
-       Grid.Column="1"
-       Width="16" Height="16"
-       Margin="8,0,4,0"/>
+               Source="ms-appx:///Assets/StoreLogo.png"
+               Grid.Column="1"
+               Width="16" Height="16"
+               Margin="8,0,4,0" />
+
             <TextBlock x:Name="TitleBarTextBlock"
-           Text="App title" 
-           Style="{StaticResource CaptionTextBlockStyle}"
-           Grid.Column="2"
-           VerticalAlignment="Center">
-            </TextBlock>
+               Text="App title" 
+               Style="{StaticResource CaptionTextBlockStyle}"
+               Grid.Column="2"
+               VerticalAlignment="Center"></TextBlock>
+
             <AutoSuggestBox x:Name="TitleBarSearchBox" 
                 Grid.Column="4" 
                 QueryIcon="Find"
                 PlaceholderText="Search"
                 VerticalAlignment="Center"
                 MaxWidth="600"/>
+
             <PersonPicture x:Name="PersonPic" 
                Grid.Column="6" 
                Height="32" Margin="0,0,16,0"/>
-        </Grid>
 
+           
+        </Grid>
+ 
         <NavigationView
             x:Name="NavigationViewControl"
-Canvas.ZIndex="1"           
+            Canvas.ZIndex="1"           
             IsBackButtonVisible="Visible"
             IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
             SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
             IsSettingsVisible="True"
             ExpandedModeThresholdWidth="1280"
             DisplayModeChanged="NavigationViewControl_DisplayModeChanged"
-            Header="{x:Bind ((ContentControl)ViewModel.Selected).Content, Mode=OneWay}">
+            Header="{x:Bind ((ContentControl)ViewModel.Selected).Content, Mode=OneWay}" >
             <NavigationView.MenuItems>
                 <!--
                 TODO: Update item titles by updating <x:Uid>.Content entries in Strings/en-us/Resources.resw.
@@ -73,9 +80,15 @@ Canvas.ZIndex="1"
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItemSeparator />
                 <NavigationViewItem x:Uid="Shell_Blank1" helpers:NavigationHelper.NavigateTo="App11.ViewModels.Blank1ViewModel">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7c3;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_DataGrid" helpers:NavigationHelper.NavigateTo="App11.ViewModels.DataGridViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe80a;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
@@ -106,5 +119,6 @@ Canvas.ZIndex="1"
                 <Frame x:Name="NavigationFrame" />
             </Grid>
         </NavigationView>
+    
     </Grid>
 </Page>

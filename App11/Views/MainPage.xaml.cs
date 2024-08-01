@@ -42,11 +42,11 @@ public sealed partial class MainPage : Page
             }
             else if (args.InvokedItem == SamplePage3Item.Content)
             {
-                pageType = typeof(SettingsPage);
+                pageType = typeof(DataGridPage);
             }
             else if (args.InvokedItem == SamplePage4Item.Content)
             {
-                pageType = typeof(MainPage);
+                pageType = typeof(SettingsPage);
             }
             contentFrame.NavigateToType(pageType, null, navOptions);
         }

@@ -10,25 +10,42 @@
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
 
         </Grid.RowDefinitions>
-        
-        
-        <NavigationView x:Name="nvSample" PaneDisplayMode="Top" Grid.Row="0"
-    SelectionFollowsFocus="Enabled" IsBackButtonVisible="Collapsed">
-            <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Play" Content="Item1" x:Name="SamplePage1Item" />
-                <NavigationViewItem Icon="Save" Content="Item2" x:Name="SamplePage2Item" />
-                <NavigationViewItem Icon="Refresh" Content="Item3" x:Name="SamplePage3Item" />
-                <NavigationViewItem Icon="Download" Content="Item4" x:Name="SamplePage4Item" />
-            </NavigationView.MenuItems>
-            <Frame x:Name="contentFrame"/>
-        </NavigationView>
+        <Grid Grid.Row="0">            <!--<AppBarButton Icon="Like" Label="SymbolIcon" />            <AppBarButton Icon="Like" Label="SymbolIcon" />-->            <!--<CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right">
+                --><!--<AppBarButton Icon="Add" Label="Add"/>
+                <AppBarButton Icon="Edit" Label="Edit"/>
+                <AppBarButton Icon="Share" Label="Share"/>--><!--
+                <CommandBar.PrimaryCommands>
+                    <AppBarButton Icon="AttachCamera" Label="Attach Camera"/>
+                    <AppBarSeparator />
+                    <AppBarButton Icon="Like" Label="Like"/>
+                    <AppBarButton Icon="Dislike" Label="Dislike"/>
+                    <AppBarSeparator />
+                    <AppBarButton Icon="Orientation" Label="Orientation"/>
+                </CommandBar.PrimaryCommands>
 
-              <!--#endregion Resources-->        <dxg:GridControl        x:Name="grid"        AutoExpandAllGroups="True"        AutoGenerateColumns="False"        AutoWidth="False"      Grid.Row="1"        NavigationStyle="Cell"        ShowFixedTotalSummary="True"        ShowGroupPanel="False"        ShowGroupedColumns="False"        ShowSearchPanelMode="Always"       >            <dxg:GridControl.Columns>                              <dxg:GridTextColumn                FieldName="Subject"                Width="300"                AllowFiltering="False"                AllowGrouping="False"                TextTrimming="CharacterEllipsis" />                           <dxg:GridDateColumn                FieldName="CreatedDate"                Width="110"                AllowFiltering="False"                AllowGrouping="False"                GroupIndex="0"                GroupInterval="DateRange"                Mask="M/d/yyyy"                SortOrder="Descending" />                <dxg:GridDateColumn                FieldName="StartDate"                Width="110"                AllowFiltering="False"                AllowGrouping="False"                Mask="M/d/yyyy"                NullText="None" />                <dxg:GridDateColumn                FieldName="DueDate"                Width="110"                AllowFiltering="False"                AllowGrouping="False"                Mask="M/d/yyyy"                NullText="None" />                <dxg:GridDateColumn                FieldName="FinishDate"                Width="120"                AllowFiltering="False"                AllowGrouping="False"                Mask="M/d/yyyy"                NullText="None" />                          </dxg:GridControl.Columns>                   </dxg:GridControl>
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Icon="Setting" Label="Settings">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="I" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>-->            <CommandBar IsOpen="True" IsSticky="True" >
+                <CommandBar.PrimaryCommands>
+                    <AppBarButton Icon="AttachCamera" Label="Attach Camera"/>
+                    <AppBarSeparator />
+                    <AppBarButton Icon="Like" Label="Like"/>
+                    <AppBarButton Icon="Dislike" Label="Dislike"/>
+                    <AppBarSeparator />
+                    <AppBarButton Icon="Orientation" Label="Orientation"/>
+                </CommandBar.PrimaryCommands>
+            </CommandBar>        </Grid>        <Grid Grid.Row="1">            <!--#endregion Resources-->            <dxg:GridControl  x:Name="grid"  AutoExpandAllGroups="True"  AutoGenerateColumns="False"  AutoWidth="False"Grid.Row="1"  NavigationStyle="Cell"  ShowFixedTotalSummary="True"  ShowGroupPanel="False"  ShowGroupedColumns="False"  ShowSearchPanelMode="Always" >                <dxg:GridControl.Columns>                    <dxg:GridTextColumn          FieldName="Subject"          Width="300"          AllowFiltering="False"          AllowGrouping="False"          TextTrimming="CharacterEllipsis" />                    <dxg:GridDateColumn          FieldName="CreatedDate"          Width="110"          AllowFiltering="False"          AllowGrouping="False"          GroupIndex="0"          GroupInterval="DateRange"          Mask="M/d/yyyy"          SortOrder="Descending" />                    <dxg:GridDateColumn          FieldName="StartDate"          Width="110"          AllowFiltering="False"          AllowGrouping="False"          Mask="M/d/yyyy"          NullText="None" />                    <dxg:GridDateColumn          FieldName="DueDate"          Width="110"          AllowFiltering="False"          AllowGrouping="False"          Mask="M/d/yyyy"          NullText="None" />                    <dxg:GridDateColumn          FieldName="FinishDate"          Width="120"          AllowFiltering="False"          AllowGrouping="False"          Mask="M/d/yyyy"          NullText="None" />                </dxg:GridControl.Columns>            </dxg:GridControl>        </Grid>        
 
     </Grid>
 </Page>

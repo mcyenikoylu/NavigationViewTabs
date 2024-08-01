@@ -17,9 +17,9 @@
 SelectionFollowsFocus="Enabled" IsBackButtonVisible="Collapsed" ItemInvoked="nvSample_ItemInvoked" SelectionChanged="nvSample_SelectionChanged" >
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Play" Content="Item1" x:Name="SamplePage1Item" Tag="BlankPage1" />
-                <NavigationViewItem Icon="Save" Content="Item2" x:Name="SamplePage2Item" Tag="SamplePage6Page" />
-                <NavigationViewItem Icon="Refresh" Content="Item3" x:Name="SamplePage3Item" Tag="SamplePage7Page" />
-                <NavigationViewItem Icon="Download" Content="Item4" x:Name="SamplePage4Item" Tag="SamplePage8Page" />
+                <NavigationViewItem Icon="Save" Content="Item2" x:Name="SamplePage2Item" Tag="Blank1Page" />
+                <NavigationViewItem Icon="Refresh" Content="Item3" x:Name="SamplePage3Item" Tag="DataGridPage" />
+                <NavigationViewItem Icon="Download" Content="Item4" x:Name="SamplePage4Item" Tag="SettingsPage" />
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"/>
         </NavigationView>

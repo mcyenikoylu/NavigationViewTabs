@@ -15,6 +15,9 @@ using Windows.UI.ViewManagement;
 using Rect = Windows.Foundation.Rect;
 using Windows.UI.WindowManagement;
 using Microsoft.UI.Windowing;
+using System.Runtime.InteropServices;
+using Microsoft.UI;
+using WinRT.Interop;
 
 namespace App11.Views;
 
@@ -42,8 +45,9 @@ public sealed partial class ShellPage : Page
         //App.MainWindow.ExtendsContentIntoTitleBar = true;
         //App.MainWindow.SetTitleBar(AppTitleBar);
         //App.MainWindow.Activated += MainWindow_Activated;
-        //AppTitleBarText.Text = "AppDisplayName".GetLocalized();
+        //TitleBarTextBlock.Text = "AppDisplayName".GetLocalized();
 
+       
 
         // Assumes "this" is a XAML Window. In projects that don't use 
         // WinUI 3 1.3 or later, use interop APIs to get the AppWindow.
@@ -58,6 +62,7 @@ public sealed partial class ShellPage : Page
         {
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
         }
+
         TitleBarTextBlock.Text = AppInfo.Current.DisplayInfo.DisplayName;
     }
 
@@ -73,6 +78,19 @@ public sealed partial class ShellPage : Page
     //{
     //    App.AppTitlebar = AppTitleBarText as UIElement;
     //}
+    private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
+    {
+        if (args.WindowActivationState == WindowActivationState.Deactivated)
+        {
+            TitleBarTextBlock.Foreground =
+                (SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"];
+        }
+        else
+        {
+            TitleBarTextBlock.Foreground =
+                (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
+        }
+    }
 
     private void NavigationViewControl_DisplayModeChanged(NavigationView sender, NavigationViewDisplayModeChangedEventArgs args)
     {
@@ -121,7 +139,7 @@ public sealed partial class ShellPage : Page
 
     private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if(App.MainWindow.ExtendsContentIntoTitleBar == true)
+        if (App.MainWindow.ExtendsContentIntoTitleBar == true)
         {
             // Update interactive regions if the size of the window changes.
             SetRegionsForCustomTitleBar();
@@ -166,20 +184,6 @@ public sealed partial class ShellPage : Page
             _Width: (int)Math.Round(bounds.Width * scale),
             _Height: (int)Math.Round(bounds.Height * scale)
         );
-    }
-
-    private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
-    {
-        if (args.WindowActivationState == WindowActivationState.Deactivated)
-        {
-            TitleBarTextBlock.Foreground =
-                (SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"];
-        }
-        else
-        {
-            TitleBarTextBlock.Foreground =
-                (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
-        }
     }
 
     private void AppWindow_Changed(Microsoft.UI.Windowing.AppWindow sender, Microsoft.UI.Windowing.AppWindowChangedEventArgs args)
@@ -256,4 +260,8 @@ public sealed partial class ShellPage : Page
         }
     }
 
+    private void PersonButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
 }
